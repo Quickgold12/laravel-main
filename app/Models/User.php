@@ -9,10 +9,14 @@ use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 use Filament\Models\Contracts\FilamentUser;
 use Filament\Panel;
+use Laravel\Jetstream\HasProfilePhoto;
+use Laravel\Fortify\TwoFactorAuthenticatable;
 
 class User extends Authenticatable implements FilamentUser
 {
     use HasApiTokens, HasFactory, Notifiable, HasRoles;
+    use HasProfilePhoto;
+    use TwoFactorAuthenticatable;
 
     protected $fillable = [
         'name',
